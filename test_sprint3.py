@@ -9,3 +9,4 @@ for r in results:
     print("Source:", r["source"])
     print("Text:", r["chunk"][:150])
     print("---")
+    
