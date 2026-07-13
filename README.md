@@ -2,6 +2,8 @@
 
 An intelligent AI assistant that dynamically routes user questions between company documents (RAG) and structured business data (SQL), built with a LangGraph-orchestrated multi-agent architecture.
 
+🎥 **Demo Video:** [https://drive.google.com/your-link](https://drive.google.com/drive/folders/1dfRo_Cs0Y9Wqg_IOZu3wGdOJxQtF2lDf?hl=ar)
+
 > Built as a hands-on project to demonstrate practical Agentic AI engineering: tool calling, routing, multi-step orchestration, and RAG — the core skills required for production AI Engineering roles.
 
 ---
