@@ -9,3 +9,4 @@ class ChatResponse(BaseModel):
     question: str
     source_used: str
     answer: str
+    latency_seconds: float

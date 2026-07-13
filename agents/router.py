@@ -52,7 +52,6 @@ def rag_node(state: AgentState) -> AgentState:
 
 
 def response_generator_node(state: AgentState) -> AgentState:
-    
     prompt = f"""Based on the following raw result, write a clear, natural, well-formatted answer to the user's question.
 
 Question: {state['question']}
@@ -61,10 +60,12 @@ Raw Result: {state['raw_result']}
 Final Answer:"""
 
     final_answer = ask_llm(prompt)
-    logger.info(f"[Response Generator Node] Final answer generated")
+    
+    is_grounded = state['raw_result'] is not None and len(str(state['raw_result']).strip()) > 0
+    
+    logger.info(f"[Response Generator Node] Final answer generated | Grounded: {is_grounded}")
     state["final_answer"] = final_answer
     return state
-
 
 def decide_next_node(state: AgentState) -> str:
    
@@ -99,9 +100,12 @@ def build_graph():
 
 compiled_graph = build_graph()
 
+import time
 
 def route_question(question: str) -> dict:
     
+    start_time = time.time()
+
     initial_state: AgentState = {
         "question": question,
         "decision": None,
@@ -111,8 +115,12 @@ def route_question(question: str) -> dict:
 
     result = compiled_graph.invoke(initial_state)
 
+    latency = round(time.time() - start_time, 2)
+    logger.info(f"[Evaluation] Latency: {latency}s | Source: {result['decision']}")
+
     return {
         "question": result["question"],
         "source_used": result["decision"],
-        "answer": result["final_answer"]
+        "answer": result["final_answer"],
+        "latency_seconds": latency
     }

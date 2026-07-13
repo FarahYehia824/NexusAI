@@ -25,7 +25,8 @@ def chat(request: ChatRequest):
         return ChatResponse(
             question=result["question"],
             source_used=result["source_used"],
-            answer=result["answer"]
+            answer=result["answer"],
+            latency_seconds=result["latency_seconds"]
         )
     except Exception as e:
         logger.error(f"[API] Error: {e}")
