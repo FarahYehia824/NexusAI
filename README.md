@@ -3,7 +3,8 @@
 An intelligent AI assistant that dynamically routes user questions between company documents (RAG) and structured business data (SQL), built with a LangGraph-orchestrated multi-agent architecture.
 
 Watch NexusAI in action:
-🎥 **Demo Video:** [https://drive.google.com/your-link](https://drive.google.com/drive/folders/1dfRo_Cs0Y9Wqg_IOZu3wGdOJxQtF2lDf?hl=ar)
+
+🎥 **Demo Video:** [https://drive.google.com](https://drive.google.com/drive/folders/1dfRo_Cs0Y9Wqg_IOZu3wGdOJxQtF2lDf?hl=ar)
 
 The demo showcases:
 - Dynamic routing between RAG and SQL
